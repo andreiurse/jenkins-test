@@ -10,4 +10,22 @@ public class TestHelloWorld {
         HelloWorld helloWorld = new HelloWorld();
         assertThat(helloWorld.returnSmth()).isEqualToIgnoringCase("something");
     }
+
+    @Test
+    public void testReturnSomething2() {
+        HelloWorld helloWorld = new HelloWorld();
+        assertThat(helloWorld.returnSmth()).isEqualToIgnoringCase("something");
+    }
+
+    @Test
+    public void testReturnSomething3() {
+        HelloWorld helloWorld = new HelloWorld();
+        assertThat(helloWorld.returnSmth()).isEqualToIgnoringCase("something");
+    }
+
+    @Test
+    public void testReturnSomething4() {
+        HelloWorld helloWorld = new HelloWorld();
+        assertThat(helloWorld.returnSmth()).isEqualToIgnoringCase("something");
+    }
 }
