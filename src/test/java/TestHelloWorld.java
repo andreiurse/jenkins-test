@@ -14,7 +14,7 @@ public class TestHelloWorld {
     @Test
     public void testReturnSomething2() {
         HelloWorld helloWorld = new HelloWorld();
-        assertThat(helloWorld.returnSmth()).isEqualToIgnoringCase("something");
+        assertThat(helloWorld.returnSmth()).isEqualToIgnoringCase("something2");
     }
 
     @Test
@@ -26,6 +26,6 @@ public class TestHelloWorld {
     @Test
     public void testReturnSomething4() {
         HelloWorld helloWorld = new HelloWorld();
-        assertThat(helloWorld.returnSmth()).isEqualToIgnoringCase("something");
+        assertThat(helloWorld.returnSmth()).isEqualToIgnoringCase("somethingwrong");
     }
 }
