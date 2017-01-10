@@ -8,7 +8,6 @@ public class TestHelloWorld {
     @Test
     public void testReturnSomething() {
         HelloWorld helloWorld = new HelloWorld();
-        assertThat(helloWorld.returnSmth()).isEqualToIgnoringCase("somethi");
-        //test
+        assertThat(helloWorld.returnSmth()).isEqualToIgnoringCase("something");
     }
 }
