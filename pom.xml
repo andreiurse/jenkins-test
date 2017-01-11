@@ -8,6 +8,7 @@
     <artifactId>jenkins-test</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
+    <name>jenkins-test</name>
 
     <dependencies>
         <dependency>
