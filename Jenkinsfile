@@ -1,6 +1,6 @@
 node {
    stage('Preparation') {
-
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/andreiurse/jenkins-test.git']]])
    }
    stage('Build') {
       // Run the maven build
