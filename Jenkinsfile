@@ -13,7 +13,6 @@ node {
       archive 'target/*.jar'
    }
    stage('Upload to nexus') {
-        echo ${BUILD_NUMBER};
         input 'Publish to Nexus?'
 
         nexusArtifactUploader artifacts: [[artifactId: 'jenkins-test', classifier: '', file: '\\target\\jenkins-test.war', type: 'war']],
@@ -23,6 +22,6 @@ node {
                               nexusVersion: 'nexus3',
                               protocol: 'http',
                               repository: 'maven-test',
-                              version: '2.0.1'
+                              version: '2.'${BUILDS_ALL_TIME}
    }
 }
