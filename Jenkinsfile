@@ -3,9 +3,9 @@ node {
    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/andreiurse/jenkins-test.git']]])
       // Run the maven build
       if (isUnix()) {
-         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean install"
+         sh "'${mvnHome}/bin/mvn' -Dbuild.number=${BUILD_NUMBER} clean install"
       } else {
-         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean install/)
+         bat(/"${mvnHome}\bin\mvn" -Dbuild.number=${BUILD_NUMBER} clean install/)
       }
    }
    stage('Results') {
