@@ -15,7 +15,8 @@ node {
    stage('Upload to nexus') {
         input 'Publish to Nexus?'
 
-        nexusArtifactUploader credentialsId: '08bc4c16-10f0-499a-bad4-2daab5e0bc2e',
+        nexusArtifactUploader artifacts: [[artifactId: 'jenkins-test', classifier: '', file: '\\target\\jenkins-test.war', type: 'war']],
+                              credentialsId: '08bc4c16-10f0-499a-bad4-2daab5e0bc2e',
                               groupId: 'org.jenkins.test',
                               nexusUrl: 'localhost:8081',
                               nexusVersion: 'nexus3',
