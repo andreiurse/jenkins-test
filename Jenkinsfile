@@ -22,6 +22,5 @@ node {
                               nexusVersion: 'nexus3',
                               protocol: 'http',
                               repository: 'maven-test',
-                              version: '2.25'
    }
 }
