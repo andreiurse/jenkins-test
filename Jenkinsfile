@@ -13,6 +13,7 @@ node {
       archive 'target/*.jar'
    }
    stage('Upload to nexus') {
+        wait: false
         input 'Publish to Nexus?'
 
         nexusArtifactUploader artifacts: [[artifactId: 'jenkins-test', classifier: '', file: '\\target\\jenkins-test.war', type: 'war']],
