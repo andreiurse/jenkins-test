@@ -13,9 +13,9 @@ node {
       archive 'target/*.jar'
    }
    stage('Upload to nexus') {
-        wait: false
-        input 'Publish to Nexus?'
-
+        timeout(time: 10, unit: 'SECONDS') {
+            input 'Publish to Nexus?'
+        }
         nexusArtifactUploader artifacts: [[artifactId: 'jenkins-test', classifier: '', file: '\\target\\jenkins-test.war', type: 'war']],
                               credentialsId: '08bc4c16-10f0-499a-bad4-2daab5e0bc2e',
                               groupId: 'org.jenkins.test',
