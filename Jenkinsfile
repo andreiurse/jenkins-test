@@ -13,6 +13,7 @@ node {
       archive 'target/*.jar'
    }
    stage('Upload to nexus') {
+        currentBuild.result = 'SUCCESS'
         timeout(time: 10, unit: 'SECONDS') {
             input 'Publish to Nexus?'
         }
