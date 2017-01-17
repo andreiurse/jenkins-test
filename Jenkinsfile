@@ -15,7 +15,7 @@ node {
    stage('Upload to nexus') {
         input 'Publish to Nexus?'
 
-        echo '\${BUILDS_ALL_TIME}'
+        echo \${BUILDS_ALL_TIME}
 
         nexusArtifactUploader artifacts: [[artifactId: 'jenkins-test', classifier: '', file: '\\target\\jenkins-test.war', type: 'war']],
                               credentialsId: '08bc4c16-10f0-499a-bad4-2daab5e0bc2e',
