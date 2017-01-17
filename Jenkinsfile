@@ -3,9 +3,9 @@ node {
    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/andreiurse/jenkins-test.git']]])
       // Run the maven build
       if (isUnix()) {
-         sh "'${mvnHome}/bin/mvn' -Dbuild.number=${BUILD_NUMBER} clean install"
+         sh "'${mvnHome}/bin/mvn' clean install"
       } else {
-         bat(/"${mvnHome}\bin\mvn" -Dbuild.number=${BUILD_NUMBER} clean install/)
+         bat(/"${mvnHome}\bin\mvn" clean install/)
       }
    }
    stage('Results') {
@@ -15,6 +15,8 @@ node {
    stage('Upload to nexus') {
         input 'Publish to Nexus?'
 
+        echo ${BUILDS_ALL_TIME}
+
         nexusArtifactUploader artifacts: [[artifactId: 'jenkins-test', classifier: '', file: '\\target\\jenkins-test.war', type: 'war']],
                               credentialsId: '08bc4c16-10f0-499a-bad4-2daab5e0bc2e',
                               groupId: 'org.jenkins.test',
@@ -22,6 +24,6 @@ node {
                               nexusVersion: 'nexus3',
                               protocol: 'http',
                               repository: 'maven-test',
-                              version: '2.'${BUILDS_ALL_TIME}
+                              version: '2.'
    }
 }
